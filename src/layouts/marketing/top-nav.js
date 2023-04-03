@@ -110,7 +110,7 @@ export const TopNav = (props) => {
                     p: 0
                   }}
                 >
-                  <TopNavItem
+                  {/* <TopNavItem
                     popover={<PagesPopover />}
                     title="Pages"
                   />
@@ -118,7 +118,7 @@ export const TopNav = (props) => {
                     external
                     path={paths.docs.welcome}
                     title="Documentation"
-                  />
+                  /> */}
                   <IconButton
                     color="inherit"
                     onClick={handleThemeSwitch}

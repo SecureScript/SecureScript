@@ -30,19 +30,34 @@ export const HomeHero = () => (
         Breathing fresh life into your practice
       </Typography>
       <Typography
-  align="center"
-  color="text.secondary"
-  sx={{
-    fontSize: {
-      xs: 20,
-      md: 24
-    },
-    lineHeight: 1.5,
-    mb: 3
-  }}
->
-  ApptBuddy is the secure, compliant, and intuitive patient management system designed exclusively for medical professionals. With ApptBuddy, seamlessly manage your patients and stay ahead in today's fast-paced healthcare environment. 
-</Typography>
+        align="center"
+        color="text.secondary"
+        sx={{
+          fontSize: {
+            xs: 20,
+            md: 24
+          },
+          lineHeight: 1.5,
+          mb: 3
+        }}
+      >
+        If you're a medical professional looking for an intuitive and secure patient management system, ApptBuddy is here to serve.
+      </Typography>
+      <Typography
+        align="center"
+        color="text.secondary"
+        sx={{
+          fontSize: {
+            xs: 20,
+            md: 24
+          },
+          lineHeight: 1.5,
+          mb: 3
+        }}
+      >
+
+        With its intuitive, user-friendly interface and compliance with industry regulations, ApptBuddy is the perfect instrument to efficiently manage your patients and stay one step ahead of the paperwork in today's fast-paced healthcare environment.
+      </Typography>
 
 
       <Stack
