@@ -3,11 +3,11 @@ import { Box, Button, Chip, Container, Stack, Typography } from '@mui/material';
 import { paths } from '../../paths';
 
 const features = [
-  'Customers',
-  'Products',
-  'Orders',
-  'Invoices',
-  'Organization'
+  'Adaptive',
+  'Zero Lag',
+  'Mission-critical speed',
+  'Multi-layered',
+  'Page consolidation'
 ];
 
 export const HomeUserFlows = () => (
@@ -40,14 +40,13 @@ export const HomeUserFlows = () => (
               sx={{ mb: 2 }}
               variant="h2"
             >
-              Management User Flows
+              Modern user flows
             </Typography>
             <Typography
               color="text.secondary"
               sx={{ mb: 3 }}
             >
-              Rather than a generic template, we focused on management-specific screens to enable
-              developers focus on the important part of the development process.
+              ApptBuddy's innovative dashboard offers medical professionals a modern and user-friendly experience. Rather than navigating through a complex array of tabs and pages, all of the necessary features are conveniently consolidated into a single, multi-layered page, allowing for seamless navigation between different sections. With lightning-fast loading times, even during the busiest periods, ApptBuddy's adaptive and intuitive design helps streamline your workflow and maximize efficiency, so you can spend more time providing top-quality care to your patients while your practice operations operate like clockwork in the background.
             </Typography>
             <Stack
               alignItems="center"
@@ -75,7 +74,7 @@ export const HomeUserFlows = () => (
                 size="large"
                 variant="outlined"
               >
-                Live Preview
+                View the demo
               </Button>
               <Button
                 component="a"

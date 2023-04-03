@@ -15,40 +15,43 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 
-const features = [
-  'One end project',
-  '12 months updates',
+const modularFeatures = [
+  'Pay per module',
+  'Ticket based support',
   '6 months of support',
-  'TypeScript version',
-  'Design assets',
+  'Seamless integration with your existing patient data'
+];
+
+const standardFeatures = [
+  'Pay per module',
+  'Premium support',
+  'Includes "SmartSurgery" modules',
+  'Unlimited updates',
+  'Seamless integration with your existing patient data'
+];
+
+const premiumFeatures = [
+  'Premium support',
+  'Includes "SmartSurgery" modules',
+  'Includes all features',
+  'Unlimited updates',
+  'Seamless integration with your existing patient data',
+  'Dedicated Manager',
   'Commercial applications'
 ];
 
 const plans = [
   {
+    name: 'Modular',
+    features: modularFeatures
+  },
+  {
     name: 'Standard',
-    features: ['One end project', '12 months updates', '6 months of support']
+    features: standardFeatures
   },
   {
-    name: 'Standard Plus',
-    features: [
-      'One end project',
-      '12 months updates',
-      '6 months of support',
-      'TypeScript version',
-      'Design assets'
-    ]
-  },
-  {
-    name: 'Extended',
-    features: [
-      'One end project',
-      '12 months updates',
-      '6 months of support',
-      'TypeScript version',
-      'Design assets',
-      'Commercial applications'
-    ]
+    name: 'Premium',
+    features: premiumFeatures
   }
 ];
 
@@ -99,8 +102,8 @@ export const HomePricing = () => (
                   py: 2
                 }}
               >
-                {features.map((feature) => {
-                  const isIncluded = plan.features.includes(feature);
+                {plan.features.map((feature) => {
+                  const isIncluded = true;
 
                   return (
                     <ListItem
@@ -151,35 +154,37 @@ export const HomePricing = () => (
         ))}
       </Grid>
       <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          mt: 8
-        }}
-      >
-        <Typography
-          color="primary"
-          variant="h3"
-        >
-          Do you have a special case?
-        </Typography>
-        <Typography
-          color="text.secondary"
-          sx={{ my: 2 }}
-        >
-          Let’s talk about your specific requirements and see how we can help you.
-        </Typography>
-        <Button
-          component="a"
-          href="https://devias.io/contact"
-          size="large"
-          target="_blank"
-          variant="contained"
-        >
-          Contact us
-        </Button>
-      </Box>
+  sx={{
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    mt: 8,
+    textAlign: 'center',
+  }}
+>
+  <Typography
+    color="primary"
+    variant="h3"
+  >
+    Do you have a special case?
+  </Typography>
+  <Typography
+    color="text.secondary"
+    sx={{ my: 2 }}
+  >
+    We are always open to discussing custom solutions. Take advantage of our professional, full-time development team that would love to work with you and create bespoke features like custom modules, integrations and features.
+  </Typography>
+  <Button
+    component="a"
+    href="https://devias.io/contact"
+    size="large"
+    target="_blank"
+    variant="contained"
+  >
+    Contact us
+  </Button>
+</Box>
+
     </Container>
   </Box>
 );

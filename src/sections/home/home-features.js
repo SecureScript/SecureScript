@@ -31,7 +31,8 @@ export const HomeFeatures = () => (
             align="center"
             color="text.secondary"
           >
-            More than 30 screens, utilities and hooks for your product development
+            Automated appointment reminders, Recall management, Mass Mailer, Virtual waiting room, Revenue optimisation and so much more.
+            All seamlessly available in a beautiful, intuitive interface. We also incorporate the latest AI and machine learning technologies to optimise your workflow.
           </Typography>
         </Stack>
         <div>
@@ -71,11 +72,11 @@ export const HomeFeatures = () => (
                   spacing={1}
                 >
                   <Typography variant="h4">
-                    Authentication
+                    Security as standard
                   </Typography>
                   <Typography color="text.secondary">
-                    The template comes with Cognito, Firebase, Auth0 and JWT Auth systems installed and
-                    configured. Get up and running in a matter of minutes.
+                    You're automatically covered by the latest security standards even from the most basic licence. 
+                    We use the latest encryption technologies to ensure your patient's data is safe and secure, we're GDPR compliant and we're ISO 27001 certified - leaving you safe in the knowledge that your data is protected by the best industry standards.
                   </Typography>
                 </Stack>
               </Stack>
@@ -115,11 +116,10 @@ export const HomeFeatures = () => (
                   sx={{ mb: 1 }}
                   variant="h5"
                 >
-                  Loading and Error states
+                  Patient Ping
                 </Typography>
                 <Typography color="text.secondary">
-                  Screens come connected to a fake server api client and state management system,
-                  and can be hooked to your real server in no time.
+                  Included in all plans. Book your patient in and they'll be automatically reminded of their appointment via SMS or email at intervals you pre-define.
                 </Typography>
               </Box>
             </Grid>
@@ -158,11 +158,10 @@ export const HomeFeatures = () => (
                   sx={{ mb: 1 }}
                   variant="h5"
                 >
-                  Advanced Features
+                  Seamless Database Integration
                 </Typography>
                 <Typography color="text.secondary">
-                  When it comes to management, it’s important to have good tools for specific needs,
-                  so we included a powerful filter system so you won’t have to build one.
+                  We use Supabase to provide a seamless database integration. This means you can use your existing database and we'll automatically sync your data with our platform. This will all be handled by your account manager.
                 </Typography>
               </Box>
             </Grid>
@@ -212,8 +211,9 @@ export const HomeFeatures = () => (
                   Responsive
                 </Typography>
                 <Typography color="text.secondary">
-                  Fully responsive templates. Layouts are created with mobile in mind
-                  to make your project ready for any type of end-user.
+                  Fully responsive surgery management panel that works on all devices. Customise your dashboard to suit your needs with the power of next.js 
+                  {'\n'}
+                  We offer a choice of themes and colour palettes to suit your brand and we are more than happy to discuss whitelabel customisation options to add a personal touch to your patient facing portal.
                 </Typography>
               </Box>
             </Grid>
@@ -251,7 +251,8 @@ export const HomeFeatures = () => (
                 </Typography>
                 <Typography color="text.secondary">
                   We continuously deploy new updates which include updated dependencies,
-                  new screens and bug fixes.
+                  new screens and bug fixes. We also provide a changelog via push notifications so you can see what's changed.
+                  You will always be on the bleeding edge of technology, standards and security without having to lift a finger.
                 </Typography>
               </Box>
             </Grid>

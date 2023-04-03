@@ -85,16 +85,21 @@ export const HomeSupport = () => (
                 flexGrow: 1,
                 mb: 4
               }}
-            >
+              >
               <Typography variant="h4">
-                Design Files
+                Modular licencing
               </Typography>
               <Typography
                 color="text.secondary"
                 variant="subtitle1"
               >
-                We&apos;ve included the source Figma files in Plus &amp;
-                Extended licenses so you can get creative! Build layouts with confidence.
+                ApptBuddy is a highly modular platform, leaving you the option to pick and choose the features you feel would benefit your practice the most, while trimming the fat on the features you don&apos;t.
+              </Typography>
+              <Typography
+                color="text.secondary"
+                variant="subtitle1"
+              >
+                Boasting a wide range of features specifically tailored and created with medical professionals in mind, ApptBuddy is the perfect solution for any practice.
               </Typography>
             </Stack>
             <Stack
@@ -110,7 +115,7 @@ export const HomeSupport = () => (
                 rel="nofollow noreferrer noopener"
                 target="_blank"
               >
-                Preview Figma Files
+                View modules
               </Button>
               <Stack
                 alignItems="center"
@@ -153,8 +158,19 @@ export const HomeSupport = () => (
                 color="text.secondary"
                 variant="subtitle1"
               >
-                Our support team is here to help you get started with any template-related questions.
-                We answer pretty fast.
+                From the moment you sign up, you&apos;ll be assigned a dedicated support specialist who will be there to answer any questions you may have, and help you get the most out of ApptBuddy.
+                </Typography>
+              <Typography
+                color="text.secondary"
+                variant="subtitle1"
+              >
+                From onboarding to seamlessly integrating ApptBuddy into your practice's existing systems, we&apos;re here to help.
+                </Typography>
+              <Typography
+                color="text.secondary"
+                variant="subtitle1"
+              >
+                Need a custom bespoke feature? We&apos;ll work with you to make it happen - our full team front and back end developers are at your disposal.
               </Typography>
             </Stack>
             <Stack
@@ -166,7 +182,7 @@ export const HomeSupport = () => (
             >
               <Button
                 component="a"
-                href="https://devias.io/contact"
+                href="mailto:securescriptsolutions@proton.me"
                 target="_blank"
               >
                 Contact us

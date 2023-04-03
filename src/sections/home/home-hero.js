@@ -25,25 +25,26 @@ export const HomeHero = () => (
           mb: 3
         }}
       >
-        Meet Carpatin -
+        ApptBuddy -
         <br />
-        Admin Dashboard
+        Breathing fresh life into your practice
       </Typography>
       <Typography
-        align="center"
-        color="text.secondary"
-        sx={{
-          fontSize: {
-            xs: 20,
-            md: 24
-          },
-          lineHeight: 1.5,
-          mb: 3
-        }}
-      >
-        Carpatin is a professionally crafted admin dashboard for everyday product
-        development with MUI components.
-      </Typography>
+  align="center"
+  color="text.secondary"
+  sx={{
+    fontSize: {
+      xs: 20,
+      md: 24
+    },
+    lineHeight: 1.5,
+    mb: 3
+  }}
+>
+  ApptBuddy is the secure, compliant, and intuitive patient management system designed exclusively for medical professionals. With ApptBuddy, seamlessly manage your patients and stay ahead in today's fast-paced healthcare environment. 
+</Typography>
+
+
       <Stack
         alignItems="center"
         direction="row"
@@ -57,7 +58,7 @@ export const HomeHero = () => (
           size="large"
           variant="outlined"
         >
-          Live Preview
+          Login
         </Button>
         <Button
           component="a"
@@ -66,7 +67,7 @@ export const HomeHero = () => (
           target="_blank"
           variant="contained"
         >
-          Purchase
+          Request a demo
         </Button>
       </Stack>
       <Box
