@@ -1,24 +1,9 @@
 export const paths = {
   index: '/',
   auth: {
-    jwt: {
-      login: '/auth/jwt/login',
-      register: '/auth/jwt/register'
-    },
     firebase: {
       login: '/auth/firebase/login',
       register: '/auth/firebase/register'
-    },
-    auth0: {
-      callback: '/auth/auth0/callback',
-      login: '/auth/auth0/login'
-    },
-    amplify: {
-      confirmRegister: '/auth/amplify/confirm-register',
-      forgotPassword: '/auth/amplify/forgot-password',
-      login: '/auth/amplify/login',
-      register: '/auth/amplify/register',
-      resetPassword: '/auth/amplify/reset-password'
     }
   },
   dashboard: {
@@ -88,10 +73,7 @@ export const paths = {
       introduction: '/docs/analytics-introduction'
     },
     auth: {
-      amplify: '/docs/auth-amplify',
-      auth0: '/docs/auth-auth0',
       firebase: '/docs/auth-firebase',
-      jwt: '/docs/auth-jwt'
     },
     changelog: '/docs/changelog',
     contact: '/docs/contact',

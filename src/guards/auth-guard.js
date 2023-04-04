@@ -6,10 +6,7 @@ import { paths } from '../paths';
 import { Issuer } from '../utils/auth';
 
 const loginPaths = {
-  [Issuer.Amplify]: paths.auth.amplify.login,
-  [Issuer.Auth0]: paths.auth.auth0.login,
-  [Issuer.Firebase]: paths.auth.firebase.login,
-  [Issuer.JWT]: paths.auth.jwt.login
+  [Issuer.Supabase]: paths.auth.Supabase.login
 };
 
 export const AuthGuard = (props) => {

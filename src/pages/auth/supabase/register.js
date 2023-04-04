@@ -12,6 +12,7 @@ import { Layout as AuthLayout } from '../../../layouts/auth';
 import { paths } from '../../../paths';
 import { Issuer } from '../../../utils/auth';
 import NextLink from 'next/link';
+import { supabase } from '../../../utils/supabase-client';
 
 const initialValues = {
   email: '',
@@ -53,7 +54,22 @@ const Page = () => {
     validationSchema,
     onSubmit: async (values, helpers) => {
       try {
-        await auth.createUserWithEmailAndPassword(values.email, values.password);
+        const { user, error: authError } = await supabase.auth.signUp({
+          email: values.email,
+          password: values.password,
+        });
+
+        if (authError) {
+          throw authError.message;
+        }
+
+        const { error: profileError } = await supabase
+          .from('users')
+          .insert({email: values.email, name: values.name, password: values.password});
+
+        if (profileError) {
+          throw profileError.message;
+        }
 
         if (isMounted()) {
           router.push(returnTo || paths.dashboard.index);
@@ -90,7 +106,7 @@ const Page = () => {
           <Typography variant="h4">
             Register
           </Typography>
-          <Button
+                <Button
             component={NextLink}
             href={paths.auth.firebase.login}
           >

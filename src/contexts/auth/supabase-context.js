@@ -1,18 +1,13 @@
 import { createContext, useCallback, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut
-} from 'firebase/auth';
-import { firebaseApp } from '../../libs/firebase';
+import { createClient } from '@supabase/supabase-js';
 import { Issuer } from '../../utils/auth';
 
-const auth = getAuth(firebaseApp);
+const supabaseUrl = 'https://dveuwgeqiwnbrmahlfpn.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2ZXV3Z2VxaXduYnJtYWhsZnBuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODA1MDk5NTAsImV4cCI6MTk5NjA4NTk1MH0.p-lE2smvf_gcyFJBFseaRR1WnCZxDjTuOoE91AtQbB8';
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 
 var ActionType;
 (function (ActionType) {
@@ -28,8 +23,7 @@ const initialState = {
 const reducer = (state, action) => {
   if (action.type === 'AUTH_STATE_CHANGED') {
     const { isAuthenticated, user } = action.payload;
-
-    return {
+       return {
       ...state,
       isAuthenticated,
       isInitialized: true,
@@ -42,7 +36,7 @@ const reducer = (state, action) => {
 
 export const AuthContext = createContext({
   ...initialState,
-  issuer: Issuer.Firebase,
+  issuer: Issuer.Supabase,
   createUserWithEmailAndPassword: () => Promise.resolve(),
   signInWithEmailAndPassword: () => Promise.resolve(),
   signInWithGoogle: () => Promise.resolve(),
@@ -53,19 +47,19 @@ export const AuthProvider = (props) => {
   const { children } = props;
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleAuthStateChanged = useCallback((user) => {
-    if (user) {
-      // Here you should extract the complete user profile to make it available in your entire app.
-      // The auth state only provides basic information.
+  const handleAuthStateChanged = useCallback((event, session) => {
+    if (session?.user) {
+      const user = session.user;
+
       dispatch({
         type: ActionType.AUTH_STATE_CHANGED,
         payload: {
           isAuthenticated: true,
           user: {
-            id: user.uid,
-            avatar: user.photoURL || undefined,
+            id: user.id,
+            avatar: user.avatar_url || undefined,
             email: user.email || 'anika.visser@devias.io',
-            name: 'Anika Visser',
+            name: user.user_metadata.full_name || user.email,
             plan: 'Premium'
           }
         }
@@ -81,33 +75,34 @@ export const AuthProvider = (props) => {
     }
   }, [dispatch]);
 
-  useEffect(() => onAuthStateChanged(auth, handleAuthStateChanged),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []);
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(handleAuthStateChanged);
+    handleAuthStateChanged(null, supabase.auth.session());
+
+    return () => authListener.unsubscribe();
+  }, []);
 
   const _signInWithEmailAndPassword = useCallback(async (email, password) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    await supabase.auth.signIn({ email, password });
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
-    const provider = new GoogleAuthProvider();
-
-    await signInWithPopup(auth, provider);
+        await supabase.auth.signIn({ provider: 'google' });
   }, []);
 
   const _createUserWithEmailAndPassword = useCallback(async (email, password) => {
-    await createUserWithEmailAndPassword(auth, email, password);
+    await supabase.auth.signUp({ email, password });
   }, []);
 
   const _signOut = useCallback(async () => {
-    await signOut(auth);
+    await supabase.auth.signOut();
   }, []);
 
   return (
     <AuthContext.Provider
       value={{
         ...state,
-        issuer: Issuer.Firebase,
+        issuer: Issuer.Supabase,
         createUserWithEmailAndPassword: _createUserWithEmailAndPassword,
         signInWithEmailAndPassword: _signInWithEmailAndPassword,
         signInWithGoogle,
