@@ -6,7 +6,7 @@ import { paths } from '../paths';
 import { Issuer } from '../utils/auth';
 
 const loginPaths = {
-  [Issuer.Supabase]: paths.auth.Supabase.login
+  [Issuer.Supabase]: paths.auth.supabase.login
 };
 
 export const AuthGuard = (props) => {

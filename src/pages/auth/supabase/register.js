@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import { Button, FormHelperText, Link, Stack, TextField, Typography } from '@mui/material';
 import { GuestGuard } from '../../../guards/guest-guard';
 import { IssuerGuard } from '../../../guards/issuer-guard';
-import { useAuth } from '../../../hooks/use-auth';
 import { useMounted } from '../../../hooks/use-mounted';
 import { usePageView } from '../../../hooks/use-page-view';
 import { Layout as AuthLayout } from '../../../layouts/auth';
@@ -15,6 +14,7 @@ import NextLink from 'next/link';
 import { supabase } from '../../../utils/supabase-client';
 
 const initialValues = {
+  username: '',
   email: '',
   name: '',
   password: '',
@@ -23,6 +23,10 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
+  username: Yup
+    .string()
+    .max(255)
+    .required('Username is required'),
   email: Yup
     .string()
     .max(255)
@@ -48,7 +52,6 @@ const Page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const returnTo = searchParams.get('returnTo') || undefined;
-  const auth = useAuth();
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -108,12 +111,22 @@ const Page = () => {
           </Typography>
                 <Button
             component={NextLink}
-            href={paths.auth.firebase.login}
+            href={paths.auth.supabase.login}
           >
             Sign In
           </Button>
         </Stack>
         <Stack spacing={2}>
+          <TextField
+            error={!!(formik.touched.username && formik.errors.username)}
+            fullWidth
+            helperText={formik.touched.username && formik.errors.username}
+            label="Username"
+            name="username"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            value={formik.values.username}
+          />
           <TextField
             autoFocus
             error={!!(formik.touched.name && formik.errors.name)}
@@ -197,7 +210,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <IssuerGuard issuer={Issuer.Firebase}>
+  <IssuerGuard issuer={Issuer.Supabase}>
     <GuestGuard>
       <AuthLayout>
         {page}

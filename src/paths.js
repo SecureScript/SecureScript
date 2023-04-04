@@ -1,9 +1,9 @@
 export const paths = {
   index: '/',
   auth: {
-    firebase: {
-      login: '/auth/firebase/login',
-      register: '/auth/firebase/register'
+    supabase: {
+      login: '/auth/supabase/login',
+      register: '/auth/supabase/register'
     }
   },
   dashboard: {

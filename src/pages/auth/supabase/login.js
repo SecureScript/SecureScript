@@ -81,7 +81,7 @@ const Page = () => {
           </Typography>
           <Button
             component={NextLink}
-            href={paths.auth.firebase.register}
+            href={paths.auth.supabase.register}
           >
             Sign Up
           </Button>
@@ -142,7 +142,7 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => (
-  <IssuerGuard issuer={Issuer.Firebase}>
+  <IssuerGuard issuer={Issuer.Supabase}>
     <GuestGuard>
       <AuthLayout>
         {page}
