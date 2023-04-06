@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { AuthConsumer, AuthProvider } from '../contexts/auth/jwt-context';
+import { AuthConsumer, AuthProvider } from '../contexts/auth/amplify-context';
 import { SettingsConsumer, SettingsProvider } from '../contexts/settings-context';
 import { RTL } from '../components/rtl';
 import { gtm } from '../libs/gtm';

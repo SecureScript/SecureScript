@@ -15,13 +15,14 @@ export const auth0Config = {
 };
 
 export const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  apiKey: "AIzaSyAeeYdOtPZDlCu2T-32s64twiMvh6gErlU",
+  appId: "1:874008182172:web:9f52da84fc3427e0b75c59",
+  authDomain: "appt-buddy.firebaseapp.com",
+  messagingSenderId: "874008182172",
+  projectId: "appt-buddy",
+  storageBucket: "appt-buddy.appspot.com"
 };
+
 
 export const gtmConfig = {
   containerId: process.env.NEXT_PUBLIC_GTM_CONTAINER_ID
